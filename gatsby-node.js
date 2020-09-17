@@ -1,0 +1,70 @@
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  const result = await graphql(
+    `
+      {
+        articles: allStrapiArticle {
+          edges {
+            node {
+              strapiId
+            }
+          }
+        }
+        categories: allStrapiCategory {
+          edges {
+            node {
+              strapiId
+            }
+          }
+        }
+      evenements: allStrapiEvenements {
+        edges {
+          node {
+            strapiId
+          }
+        }
+      }
+    }
+    `
+  )
+
+  if (result.errors) {
+    throw result.errors
+  }
+
+  // Create blog articles pages.
+  const articles = result.data.articles.edges
+  const categories = result.data.categories.edges
+  const evenements = result.data.evenements.edges
+
+  articles.forEach((article, index) => {
+    createPage({
+      path: `/article/${article.node.strapiId}`,
+      component: require.resolve("./src/templates/article.js"),
+      context: {
+        id: article.node.strapiId,
+      },
+    })
+  })
+
+  categories.forEach((category, index) => {
+    createPage({
+      path: `/category/${category.node.strapiId}`,
+      component: require.resolve("./src/templates/category.js"),
+      context: {
+        id: category.node.strapiId,
+      },
+    })
+  })
+
+evenements.forEach((evenement, index) => {
+  createPage({
+    path: `/evenements/${evenement.node.strapiId}`,
+    component: require.resolve("./src/templates/evenement.js"),
+    context: {
+      id: evenement.node.strapiId,
+    },
+  })
+})
+}
+
