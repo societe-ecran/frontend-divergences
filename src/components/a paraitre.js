@@ -7,6 +7,7 @@ const AParaitre = () => {
 
   return (
 
+    
     <>
       <StaticQuery
       query={graphql`
