@@ -48,7 +48,7 @@ const plusDinfo = () => (
   <div class="container-fluid enlever-scroll-bar-firefox -webkit-scrollbar">
   <div>
 
-      <p cloass="text-justify textFont">
+      <p class="text-justify textFont">
   Un livre c’est une succession de choses : un texte bien sûr mais c’est aussi des choix
 graphiques, un papier plutôt qu’un autre, un imprimeur, un réseau de diffusion et de
 distribution, et c’est le désir d’une multitude de libraires de le faire vivre ou non. Toutes

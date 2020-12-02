@@ -44,7 +44,10 @@ const IndexPage = () => (
           }
         }
       `}
+
+        
       render={data => (
+        
         <div>
         <LivresComponent articles={data.allStrapiArticle.edges} />
         </div>

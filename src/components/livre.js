@@ -4,50 +4,50 @@ import "../assets/css/main.css"
 import Moment from "react-moment"
 import 'moment/locale/fr'
 import "../fonts/fonts.css"
-
+import { Container, Row, Col } from "reactstrap";
 
 const Livre = ({ article }) => {
   
   const categorieChoisie = article.node.category.name
 
   const tailleAffichageLivre = ()=>{
-    if(categorieChoisie === "A paraître" ){
+    if(categorieChoisie === "Récemment paru" ){
         return(
-<div class="container">
-            <div class="row">
-               <div class="col-md-9">
+<div className="pb-2 pt-2 borderGeneral-bottom ">
+            {/* <div class="row "> */}
+               {/* <div class="col-md-9"> */}
                  <img   
             src={article.node.image.publicURL}
             alt={article.node.image.publicURL}
-            className="carteLivre"
-            width="350"
-            height= "585"
+            width="335"
+            height= "565"
             
                />
-        </div>
-          <div class="col-md-3 text-dark h5" >
+        {/* </div> */}
+          {/* <div class="col-md-3 text-dark h5" >
            Le<Moment locale="fr" format="Do MMM YYYY" class="col-md-3 text-dark h5 " > 
            {article.node.DateDeParution}
            </Moment>
-          </div>
-    </div>
+          </div> */}
+    {/* </div> */}
 </div>
         )
-    }else if (categorieChoisie === "Récemment paru") {
+    } else if (categorieChoisie === "A paraître") {
       return(
-        <div class="container">
-        <div class="row">
-               <div class="col-md-12">
+        <Container className= "borderGeneral-bottom ">
+        <div className="pb-2 pt-2">
+        {/* <div class="row">
+               <div class="col-md-12"> */}
         <img   
             src={article.node.image.publicURL}
             alt={article.node.image.publicURL}
-            className="carteLivre"
-            width="250"
-            height= "400"
+            width="220"
+            height= "360"
           />
+          {/* </div>
+          </div> */}
           </div>
-          </div>
-          </div>
+          </Container>
       )
     } else {
       return (
@@ -57,7 +57,7 @@ const Livre = ({ article }) => {
         <img   
             src={article.node.image.publicURL}
             alt={article.node.image.publicURL}
-            className="carteLivre"
+            // className="carteLivre"
             width="250"
             height= "auto"
           />
@@ -72,49 +72,13 @@ const Livre = ({ article }) => {
     
       
        
-        <div class="text-dark pt-3 pb-3 textFont" style={ { textDecoration: 'none' }} >
+        <div class="text-dark textFont" style={ { textDecoration: 'none' }} >
           <Link to={`/article/${article.node.strapiId}`}  
           activeStyle={{ textDecoration: "none"}} 
           style={{textDecoration:"none"}}>
 
-
-          {/* <div class="container">
-            <div class="row">
-               <div class="col-md-4"> */}
-
-
-
-            {/* <div class="card-flip shadow">
-                <div class="card front"> */}
-               
                {tailleAffichageLivre()}
                
-                {/* </div> */}
-                {/* <div class=" card back text-center text-dark shadow ">
-                <span class="container">
-                <span class="row pt-2">
-                  <span class="col-8 pt-3 border-bottom border-top border-dark textFont">
-                    <span class="text-uppercase textFont">{article.node.title}</span>
-                      <ReactMarkdown source={article.node.Auteur}/>
-                     </span>
-                </span>
-
-                <span class="col-12 border-left pb-5 border-dark">
-                  Parution le <Moment locale="fr" format="Do MMM YYYY">{article.node.DateDeParution}</Moment>  
-                </span>
-                 
-                  </span>
-                
-
-                </div> */}
-            {/* </div> */}
-     
-     
-        {/* </div>
-    </div>
-</div> */}
-
-         
           </Link>
         </div>
         

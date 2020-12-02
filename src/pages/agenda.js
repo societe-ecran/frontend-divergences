@@ -4,13 +4,22 @@ import Layout from "../components/layout"
 import "../assets/css/main.css"
 import EvenementsComponent from "../components/evenements"
 import "../fonts/fonts.css"
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from 'react-accessible-accordion';
 
-const Agenda = () => (
-  
+
+let item=[{article: 'aaaaaaaaa', titre: 'titre'},{article: 'bbbbbbbb', titre: 'titre'},{article: 'bbbbbbbbbb', titre: 'titre'},]
+const Agenda = () => {
+
+  return(
   
   <Layout>
    
-  
     <StaticQuery
       query={graphql`
         query {
@@ -48,13 +57,13 @@ const Agenda = () => (
         
   
     <EvenementsComponent class="navFont" articles={data.allStrapiEvenements.edges} />
-   
       )}
     />
     
 
   </Layout>
-)
+  )
+}
 
 export default Agenda
 

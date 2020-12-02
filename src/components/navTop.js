@@ -1,68 +1,49 @@
-import React from "react"
-import "../assets/css/main.css"
-import "../fonts/fonts.css"
-import { Link } from "gatsby"
-import "../images/panier.png"
-import Panier from "./panier"
+import React from "react";
+import "../assets/css/main.css";
+import "../fonts/fonts.css";
+import { Link } from "gatsby";
+import "../images/panier.png";
+import Panier from "./panier";
+import { Container, Row, Col } from "reactstrap";
 
-const NavTop = () => (
+const NavTop = () => {
+    let edition = "éditions divergences";
 
-<ul class="nav bg-white borderGeneral-bottom justify-content-between sticky-top shadowBar ">
-  
-  <li >
-  <Link className="text-dark font-weight-bold logoDivergences  ml-4  pt-5 navfont" 
-  style={{textDecoration:"none"}}
-  activeStyle={{ textDecoration: "none"}}
-  to="/">EDITIONS DIVERGENCES 
-  </Link>
-  </li>
-  
-  <li class="navFont pt-1">
-  <Link className=" text-dark navFont logoDivergences2" 
-  style={{textDecoration:"none"}}
-  activeStyle={{ textDecoration: "none"}}
-  to="/">Critique sociale et politique</Link>
-  </li>
+    return (
+        <div class="nav bg-white sticky-top ">
+            <Col sm="6">
+                <Link
+                    className="text-dark font-weight-bold logoDivergences  ml-2  pt-5 navfont"
+                    style={{ textDecoration: "none" }}
+                    activeStyle={{ textDecoration: "none" }}
+                    to="/"
+                >
+                    {edition.toUpperCase()}
+                </Link>
+            </Col>
 
- 
-  <li className="pr-4 pt-1">
-  <button className="snipcart-checkout panier" ><Panier/></button>
-  </li>
-  
- 
-</ul>  
+            <Col sm="4">
+                <li class="navFont pt-2">
+                    <Link
+                        className=" text-dark navFont logoDivergences2"
+                        style={{ textDecoration: "none" }}
+                        activeStyle={{ textDecoration: "none" }}
+                        to="/"
+                    >
+                        critique sociale et politique
+                    </Link>
+                </li>
+            </Col>
 
+            <Col sm="2" className="d-flex justify-content-end">
+                <li className=" pt-1">
+                    <button className="snipcart-checkout panier">
+                        <Panier />
+                    </button>
+                </li>
+            </Col>
+        </div>
+    );
+};
 
-
-
-//   <div >
-//     <nav class="navbar navbar-expand-lg navbar-light bg-white borderGeneral-bottom text-dark">
-  
-//   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-//     <span class="navbar-toggler-icon"></span>
-//   </button>
-//   <div class="collapse navbar-collapse" id="navbarNav">
-//     <ul class="navbar-nav ">
-//       <li class="nav-item">
-//       <a class="nav-link text-dark logoDivergences" href="/">EDITIONS DIVERGENCES</a>
-//       </li>
-//       <li class="nav-item">
-//         <a class="nav-link navFont" href="/">critique sociale et politique</a>
-//       </li>
-//       <li class="nav-item ">
-//         <a class="nav-link text-dark navFont " href="https://www.instagram.com/editionsdivergences/?hl=fr">INSTA</a>
-//       </li>
-//       <li class="nav-item">
-//         <a class="nav-link text-dark navFont" href="https://fr-fr.facebook.com/EditionsDivergences/">FB</a>
-//       </li>
-
-//     </ul>
-//   </div>
-// </nav>
- 
- 
-
-//   </div>
-)
-
-export default NavTop
+export default NavTop;

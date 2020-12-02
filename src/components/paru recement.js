@@ -34,15 +34,8 @@ const ParuRecement = () => {
       render={data => (
         
   
-  <div class="row">
-    
-        {/* A paraitre */}
-
-      
-      <LivresComponent articles={data.allStrapiArticle.edges} />
-      {/* <Collections/> */}
-      {/* <Category /> */}
-       
+  <div>
+      <LivresComponent articles={data.allStrapiArticle.edges} /> 
   </div>
      
       )}
